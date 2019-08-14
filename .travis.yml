@@ -1,0 +1,28 @@
+language: generic
+sudo: required
+services:
+        - docker
+
+before_install:
+        - docker build -t orjanbv/react-test -f ./client/Dockerfile.dev ./client
+
+script:
+        - docker run CI=true orjanbv/react-test npm test
+
+
+after_success:
+        # Build all images
+        - docker build -t orjanbv/multi-client ./client
+        - docker build -t orjanbv/multi-nginx ./nginx
+        - docker build -t orjanbv/multi-server ./server
+        - docker build -t orjanbv/multi-worker ./worker
+
+        # Log in to the docker CLI
+        - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin 
+
+        # Take those images and push them to docker hub.
+        - docker push orjanbv/multi-client
+        - docker push orjanbv/multi-nginx
+        - docker push orjanbv/multi-server
+        - docker push orjanbv/multi-worker
+
