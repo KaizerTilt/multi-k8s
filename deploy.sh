@@ -12,5 +12,5 @@ docker push orjanbv/multi-worker:$GIT_SHA
 
 kubectl apply -f ./k8s
 kubectl set image deployments/server-deployment server=orjanbv/multi-server:$GIT_SHA
-kubectl set image deployments/client-deployment server=orjanbv/multi-client:$GIT_SHA
-kubectl set image deployments/worker-deployment server=orjanbv/multi-worker:$GIT_SHA
+kubectl set image deployments/client-deployment client=orjanbv/multi-client:$GIT_SHA
+kubectl set image deployments/worker-deployment worker=orjanbv/multi-worker:$GIT_SHA
