@@ -2,13 +2,13 @@ docker build -t orjanbv/multi-client:latest -t orjanbv/multi-client:$GIT_SHA -f 
 docker build -t orjanbv/multi-server:latest -t orjanbv/multi-server:$GIT_SHA -f ./server/Dockerfile ./server
 docker build -t orjanbv/multi-worker:latest -t orjanbv/multi-worker:$GIT_SHA -f ./worker/Dockerfile ./worker
 
-docker push orjanb/multi-client:latest
-docker push orjanb/multi-server:latest
-docker push orjanb/multi-worker:latest
+docker push orjanbv/multi-client:latest
+docker push orjanbv/multi-server:latest
+docker push orjanbv/multi-worker:latest
 
-docker push orjanb/multi-client:$GIT_SHA
-docker push orjanb/multi-server:$GIT_SHA
-docker push orjanb/multi-worker:$GIT_SHA
+docker push orjanbv/multi-client:$GIT_SHA
+docker push orjanbv/multi-server:$GIT_SHA
+docker push orjanbv/multi-worker:$GIT_SHA
 
 kubectl apply -f ./k8s
 kubectl set image deployments/server-deployment server=orjanbv/multi-server:$GIT_SHA
