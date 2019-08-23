@@ -21,7 +21,7 @@ function App() {
 						target="_blank"
 						rel="noopener noreferrer"
 					>
-						Fibonacci calculator version 2
+						Fibonacci calculator version 3
 					</a>
 					<Link to="/">Home</Link>
 					<Link to="/otherpage">Other Page</Link>
