@@ -21,8 +21,9 @@ function App() {
 						target="_blank"
 						rel="noopener noreferrer"
 					>
-						Fibonacci calculator version 4
+						Hallo!
 					</a>
+					Fibonacci calculator on KUBERNETES!
 					<Link to="/">Home</Link>
 					<Link to="/otherpage">Other Page</Link>
 				</header>
